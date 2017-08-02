@@ -1,5 +1,5 @@
 # django_rest_example
-Django/DRF rest application example.
+Django/DRF rest application example with PostgreSQL and RabbitMQ.
 
 Create virtualenv
 

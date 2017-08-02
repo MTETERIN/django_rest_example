@@ -14,4 +14,8 @@ THIRD_PARTY_APPS += [
     'django_extensions',
 ]
 
+MIDDLEWARE_CLASSES += [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+]
+
 INSTALLED_APPS = INSTALLED_APPS + THIRD_PARTY_APPS + PROJECT_APPS

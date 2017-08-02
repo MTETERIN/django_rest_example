@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls import url, include
-from django.contrib import admin
 from django.views.generic import RedirectView
 from rest_framework import routers
 
@@ -28,6 +27,5 @@ urlpatterns = [
     # ############ #
     url(r'^$', RedirectView.as_view(url=settings.API_VERSION_URL)),
     url(r'^' + settings.API_VERSION_URL, include(router.urls, namespace='api')),
-    url(r'^admin/', admin.site.urls),
     url(r'^'+settings.API_VERSION_URL+'users/', include('apps.users.urls', namespace='users')),
 ]
