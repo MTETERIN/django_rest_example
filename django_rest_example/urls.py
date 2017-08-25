@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^$', RedirectView.as_view(url=settings.API_VERSION_URL)),
     url(r'^' + settings.API_VERSION_URL, include(router.urls, namespace='api')),
     url(r'^'+settings.API_VERSION_URL+'users/', include('apps.users.urls', namespace='users')),
+    url(r'^'+settings.API_VERSION_URL+'api-key/', include('apps.api_key.urls', namespace='api_key')),
 ]

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 PROJECT_APPS = [
     'apps.users',
     'apps.core',
+    'apps.api_key',
 ]
 
 THIRD_PARTY_APPS = [
@@ -195,6 +196,7 @@ API_VERSION_URL = 'api/v0/'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.AllowAny', ),
+    # 'DEFAULT_PERMISSION_CLASSES': ('apps.api_key.permissions.HasAPIAccess', ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
