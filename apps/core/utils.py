@@ -23,12 +23,19 @@ def generate_unique_key(value, length=40):
 
 
 def send_email_job(to, template, context, subject):
+    """
+    Create a new email job for queue.
+    :param to:
+    :param template:
+    :param context:
+    :param subject:
+    """
     from_email = settings.SENDER_EMAIL
     to_email = [to]
 
     context['client_side_url'] = settings.CLIENT_BASE_URL
 
-    # New job
+    # Publishing a new email job
     BasePublisher(
         routing_key='core.send_email',
         body={

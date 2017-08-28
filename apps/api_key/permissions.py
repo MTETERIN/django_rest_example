@@ -3,6 +3,9 @@ from .models import APIKey
 
 
 class HasAPIAccess(permissions.BasePermission):
+    """
+    Permission check for API access.
+    """
     message = 'Invalid or missing API Key.'
 
     def has_permission(self, request, view):

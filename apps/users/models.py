@@ -39,6 +39,15 @@ class CustomUserManager(BaseUserManager):
 
 
 class User(AbstractUser, AbstractBaseModel):
+    """User class definition.
+
+        Attributes:
+            username     The nickname or login of the user.
+            email  Email address of the user.
+            email_confirmation_token  Token for email confirmation.
+            reset_key  Token for changing password.
+            role  Role of the user.
+    """
     ROLE_CHOICES = (
         ('none', 'Without role'),
     )
@@ -71,6 +80,9 @@ class User(AbstractUser, AbstractBaseModel):
     objects = CustomUserManager()
 
     def __str__(self):
+        """
+        User object's string representation.
+        """
         return self.email
 
     class Meta:

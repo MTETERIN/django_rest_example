@@ -16,7 +16,10 @@ class ForgotPasswordSerializer(serializers.Serializer):
 
     @staticmethod
     def send_mail(validated_data):
-
+        """
+        Generates a reset_key for changing password,
+        Send and email to user with reset_key link.
+        """
         user = User.objects.get(email=validated_data['email'])
         user.reset_key = generate_unique_key(user.email)
         user.save()
@@ -36,6 +39,9 @@ class ForgotPasswordSerializer(serializers.Serializer):
 
     @staticmethod
     def check_email(value):
+        """
+        Check for not existing or inactive users.
+        """
         user = User.objects.filter(email=value)
 
         if not user.exists():
@@ -61,6 +67,10 @@ class SignUpSerializer(serializers.Serializer):
 
     @staticmethod
     def save_user(validated_data):
+        """
+        Saving signed up user to db,
+        Send email address confirmation email to user.
+        """
         user = User(email=validated_data['email'])
         user.set_password(validated_data['password'])
         user.is_active = False
@@ -79,6 +89,11 @@ class SignUpSerializer(serializers.Serializer):
         )
 
     def validate(self, data):
+        """
+        Validating user's data.
+        :param data:
+        :return: Validated data.
+        """
         check_valid_password(data)
         self.check_valid_email(data['email'])
 
@@ -86,6 +101,11 @@ class SignUpSerializer(serializers.Serializer):
 
     @staticmethod
     def check_valid_email(value):
+        """
+        Validating user's email
+        :param value:
+        :return: Validated data.
+        """
         if User.objects.filter(email=value).exists():
             raise serializers.ValidationError('This email address has already exist.')
 

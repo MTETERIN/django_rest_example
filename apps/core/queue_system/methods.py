@@ -9,6 +9,10 @@ class ConsumerMethods(object):
 
     @classmethod
     def send_email(cls):
+        """
+        Send an email message.
+        :return:
+        """
         template = cls.body['template']
         subject = cls.body['subject']
         to = cls.body['to']

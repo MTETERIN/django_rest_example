@@ -15,6 +15,7 @@ class Login(ObtainAuthToken):
         """
         ---
         serializer: AuthTokenSerializer
+        :rtype: Response
         """
 
         serializer = self.serializer_class(data=request.data)
@@ -38,6 +39,7 @@ class ForgotPasswordAPIView(APIView):
         """
         ---
         request_serializer: ForgotPasswordSerializer
+        :rtype: Response | JsonResponse
         """
 
         serializer = self.serializer_class(data=request.data)
@@ -60,6 +62,7 @@ class SignUpAPIView(APIView):
         """
         ---
         request_serializer: SignUpSerializer
+        :rtype: Response | JsonResponse
         """
 
         serializer = self.serializer_class(data=request.data)
@@ -82,6 +85,7 @@ class ResetPasswordAPIView(APIView):
         """
         ---
         request_serializer: ResetPasswordSerializer
+        :rtype: Response | JsonResponse
         """
 
         context = {
@@ -108,6 +112,7 @@ class ConfirmAccountAPIView(APIView):
         """
         ---
         request_serializer: ConfirmAccountSerializer
+        :rtype: Response | JsonResponse
         """
 
         serializer = self.serializer_class(data=request.data)
