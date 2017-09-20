@@ -1,6 +1,7 @@
 import hashlib
 import random
 import string
+
 from django.conf import settings
 
 from apps.core.queue_system.publisher import BasePublisher

@@ -4,9 +4,10 @@ import json
 
 import pika
 
+from django.conf import settings as project_settings
+
 from apps.core.queue_system.methods import ConsumerMethods
 from . import settings
-from django.conf import settings as project_settings
 
 
 class BaseConsumer(object):

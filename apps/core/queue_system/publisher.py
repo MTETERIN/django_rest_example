@@ -4,8 +4,9 @@ import json
 
 import pika
 
-from . import settings
 from django.conf import settings as django_settings
+
+from . import settings
 
 
 class BasePublisher(object):

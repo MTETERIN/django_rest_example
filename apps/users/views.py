@@ -7,7 +7,8 @@ from rest_framework.views import APIView
 
 from apps.users.serializers import (
     ForgotPasswordSerializer, SignUpSerializer,
-    ConfirmAccountSerializer, ResetPasswordSerializer)
+    ConfirmAccountSerializer, ResetPasswordSerializer
+)
 
 
 class Login(ObtainAuthToken):
