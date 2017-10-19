@@ -1,4 +1,9 @@
 # django_rest_example
+
+<h1 align="center">
+	<img width="400" src="https://cdn.rawgit.com/sindresorhus/awesome/master/media/logo.svg" alt="Awesome">
+</h1>
+
 Django/DRF rest application example with PostgreSQL and RabbitMQ.
 
 Create virtualenv
